@@ -16,6 +16,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
+/*style on header with responsive*/
 body {
   background-color: var(--light-gray);
   color: var(--dark-text);
@@ -40,22 +42,6 @@ h1{
 
   
 }
-h2, h3 {
-  color: var(--primary-blue);
-}
-h2 {
-  font-size: 1.75rem; /* 28px */
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  color: #4682b4;
-  text-align: center;
-}h3 {
-  font-size: 1.5rem; /* 24px */
-}
-
-p, label, li, input, textarea, button {
-  font-size: 1rem; /* 16px */
-}
 
 /* Navigation */
 nav a {
@@ -70,11 +56,6 @@ nav a {
   font-weight: 600;
 }
 
-/* Button */
-button {
-  font-size: 1rem;
-  font-weight: 600;
-}
 
 header div {
   display: flex;
@@ -144,7 +125,26 @@ nav a:hover::after {
   width: 100%;
 }
 
+h2, h3 {
+  color: var(--primary-blue);
+}
+h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  color: #4682b4;
+  text-align: center;
+}h3 {
+  font-size: 1.5rem; /* 24px */
+}
 
+p, label, li, input, textarea, button {
+  font-size: 1rem; /* 16px */
+}
+button {
+  font-size: 1rem;
+  font-weight: 600;
+}
 .director-hero {
   display: flex;
   align-items: center;
@@ -225,6 +225,10 @@ section h2 {
   margin-bottom: 20px;
   text-align: center;
 }
+
+#about{
+  text-align: justify;
+}
 /*course start*/
 .course-container {
   display: flex;
@@ -265,22 +269,6 @@ section h2 {
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   padding: 10px;
 }
-/*
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      min-width: 200px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      text-align: left;
-      padding: 10px;
-    }*/
-
     .dropdown-content p {
       margin: 6px 0;
       padding: 5px 10px;
@@ -321,7 +309,7 @@ section h2 {
       width: 90%;
       max-width: 500px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-align: left;
+      text-align: justify;
     }
 
     .modal-content h2 {
@@ -360,14 +348,14 @@ section h2 {
       height: 40px;
     }
 /*course end*/
-.gallery-container {
+.gallery-container, .gallery1-container {
   position: relative;
   overflow: hidden;
   max-width: 100%;
   margin: auto;
   padding: 10px 0;
 }
-.gallery {
+.gallery, .gallery1 {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -377,11 +365,10 @@ section h2 {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
-.gallery::-webkit-scrollbar {
+.gallery::-webkit-scrollbar, .gallery1::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-
-.gallery img {
+.gallery img,.gallery1 img {
   width: 280px;
   height: 180px;
   object-fit: cover;
@@ -390,10 +377,9 @@ section h2 {
   transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
+.gallery img:hover, .gallery1 img:hover {
   transform: scale(1.05);
 }
-
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -414,7 +400,6 @@ section h2 {
 .scroll-btn.right {
   right: 10px;
 }
-
 form {
   display: flex;
   flex-direction: column;
@@ -533,3 +518,101 @@ footer {
   right: 30px;
 }
 /* Image Modal Popup */
+
+
+/* Header Container for layout */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Group logo and title */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  transition: 0.3s ease;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  nav.main-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    height: 60px;
+  }
+}
+
+/* Slide Menu Styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: var(--primary-red);
+  padding: 30px 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-menu a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.side-menu a:hover {
+  color: var(--primary-yellow);
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Blur everything except the menu */
+body.menu-open header,
+body.menu-open .main-content {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}

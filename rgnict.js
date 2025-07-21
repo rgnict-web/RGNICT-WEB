@@ -1,27 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.getElementById('imageGallery');
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  const scrollAmount = 320;
 
-  function scrollGallery(direction) {
-    gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-  }
 
-  setInterval(() => {
-    const endReached = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth;
-    gallery.scrollTo({ left: endReached ? 0 : gallery.scrollLeft + scrollAmount, behavior: 'smooth' });
-  }, 3000);
 
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
-  });
 
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
 
-  window.scrollGallery = scrollGallery;
-});
 
 /*director Image And thoughts*/
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,25 +22,56 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.getElementById('imageGallery');//first slider
+  const gallery1 = document.getElementById('imageGallery1');//second slider
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  const scrollAmount = 320;
+//first slider
+  function scrollGallery(direction) {
+    gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+//second slider
+  function scroll_Gallery(direction) {
+    gallery1.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+  //first slider
+  setInterval(() => {
+    const endReached = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth;
+    gallery.scrollTo({ left: endReached ? 0 : gallery.scrollLeft + scrollAmount, behavior: 'smooth' });
+  }, 3000);
+   // Second slider - right to left
+  setInterval(() => {
+    const atStart = gallery1.scrollLeft <= 0;
+    gallery1.scrollTo({ left: atStart ? gallery1.scrollWidth : gallery1.scrollLeft - scrollAmount, behavior: 'smooth' });
+  }, 3000);
+  //second scroller
+  window.addEventListener("scroll", () => {
+    scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.scrollGallery = scrollGallery;//first slider
+  window.scroll_Gallery = scroll_Gallery;//second slider
+});
+
 
 function openModal(id) {
   document.getElementById(id).style.display = "block";
 }
-
 function closeModal(id) {
   document.getElementById(id).style.display = "none";
 }
-
-/*director Image And thoughts*/
-
-
-
 // === Image Popup Modal ===
 const imageModal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
-const imageLinks = Array.from(document.querySelectorAll('#imageGallery a'));
+const imageLinks = Array.from(document.querySelectorAll('#imageGallery a'));//first slider model
+const imageLinks1 = Array.from(document.querySelectorAll('#imageGallery1 a'));//second slider model
 let currentImageIndex = 0;
-
+//first slider model
 imageLinks.forEach((link, index) => {
   const img = link.querySelector('img');
   img.addEventListener('click', function (e) {
@@ -67,29 +79,50 @@ imageLinks.forEach((link, index) => {
     openImageModal(index);
   });
 });
-
+//second slider model
+imageLinks1.forEach((link, index) => {
+  const img = link.querySelector('img');
+  img.addEventListener('click', function (e) {
+    e.preventDefault(); // prevent new tab
+    openImageModal(index);
+  });
+});
+//first slider model
 function openImageModal(index) {
   currentImageIndex = index;
   modalImage.src = imageLinks[currentImageIndex].href;
   imageModal.style.display = "block";
 }
-
+//second slider model
+function openImageModal(index) {
+  currentImageIndex = index;
+  modalImage.src = imageLinks1[currentImageIndex].href;
+  imageModal.style.display = "block";
+}
 function closeImageModal() {
   imageModal.style.display = "none";
 }
-
+//first slider model
 function changeImage(direction) {
   currentImageIndex += direction;
   if (currentImageIndex < 0) currentImageIndex = imageLinks.length - 1;
   if (currentImageIndex >= imageLinks.length) currentImageIndex = 0;
   modalImage.src = imageLinks[currentImageIndex].href;
 }
-
+//second slider model
+function changeImage(direction) {
+  currentImageIndex += direction;
+  if (currentImageIndex < 0) currentImageIndex = imageLinks1.length - 1;
+  if (currentImageIndex >= imageLinks1.length) currentImageIndex = 0;
+  modalImage.src = imageLinks1[currentImageIndex].href;
+}
 window.addEventListener('click', function (e) {
   if (e.target === imageModal) {
     closeImageModal();
   }
 });
+
+
   /*course popup*/
  function toggleDropdown(id) {
     const dropdowns = document.querySelectorAll('.dropdown-content');
@@ -222,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     error.style.display = "none";
 
-    const phoneNumber = "9454680014"; // Replace with your number
+    const phoneNumber = "9454680014"; //Mobile number
     const text = `Hello, my name is *${name}*.\nEmail: ${email}\nMessage: ${message}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
@@ -232,3 +265,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //endForm
+
+//for header open
+  const hamburger = document.getElementById("hamburger");
+  const sideMenu = document.getElementById("sideMenu");
+  const closeBtn = document.getElementById("closeBtn");
+  const menuLinks = sideMenu.querySelectorAll("a");
+
+  // Open menu
+  hamburger.addEventListener("click", () => {
+    sideMenu.classList.add("active");
+    document.body.classList.add("menu-open");
+  });
+
+  // Close on ×
+  closeBtn.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      sideMenu.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    }
+  });
+
+  // ✅ Close menu when any menu link is clicked
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      sideMenu.classList.remove("active");
+      document.body.classList.remove("menu-open");
+    });
+  });
+//header close
