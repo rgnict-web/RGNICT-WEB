@@ -11,11 +11,21 @@
 </head>
 <body>
   <header>
-    <div>
-      <img src="logo11.png" alt="ABC College Logo" class="logo" />
-      <h1>Rajeev Gandhi National Institute of Computer Technology</h1>
+    <div class="header-container">
+      <div class="logo-title">
+        <img src="logo11.png" alt="RGNICT LOGO" class="logo" />
+        <h1>Rajeev Gandhi National Institute of Computer Technology</h1>
+      </div>
+
+      <!-- Hamburger icon (visible on mobile only) -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <nav>
+
+    <nav class="main-nav" id="mainNav">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -26,7 +36,19 @@
     </nav>
   </header>
 
- <section id="home" class="hero">
+<!-- Slide-in Menu (Hidden by default) -->
+<div class="side-menu" id="sideMenu">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <a href="#">Home</a>
+  <a href="#about">About</a>
+  <a href="#courses">Courses</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</div>
+
+
+
+ <section id="home" class="hero main-content">
   <h2>Welcome to Rajeev Gandhi National Institute of Computer Technology</h2>
 
   <div class="director-hero">
@@ -45,13 +67,14 @@
   </div>
 </section>
 
-  <section id="about">
+  <section id="about" class="main-content">
     <h2>About Us</h2>
     <div><a href=""><img src="" alt=""></a></div>
-    <p>WE, RGNICT, offering a comprehensive O Level, BCA, MCA, PGDCA, BA, MB programs. RGNICT is located in Prayagraj, UP, India. The RGNICT is renowned for its high-quality education and corporate-relevant curriculum. As a IT graduate from RGNICT, you will be well-prepared to embark on a successful career in areas such as software development, database management, system administration, IT consulting, or pursue higher education in computer science or related fields. We invite you to join RGNICT and become part of our vibrant academic community, where innovation, excellence, and career growth are nurtured.</p>
+    <p>RGNICT offers a diverse portfolio of career-focused programs including O Level, CCC, ADCA, DCAA, DOAP, BCA, MCA, PGDCA, BA, MA — and many more. Located in Prayagraj, Uttar Pradesh, RGNICT is known for delivering high-quality education with a strong emphasis on practical skills and industry-aligned curriculum.
+   </p><p>Whether you're starting your journey in IT or advancing your academic path, our programs are designed to prepare you for in-demand roles such as software developer, database administrator, system analyst, IT consultant, and beyond.</p><p>At RGNICT, you'll be part of an innovative academic environment that supports your growth, fosters creativity, and equips you for long-term success in the digital world.</p>
   </section>
 
- <section id="courses">
+ <section id="courses" class="main-content">
   <h2>Courses</h2>
 
   <div class="course-box" onmouseenter="showDropdown('drop1')" onmouseleave="hideDropdown('drop1')">
@@ -309,25 +332,8 @@
     <button class="see-more-btn" onclick="closeModal('modalDirector')">Less</button>
   </div>
 </div>
-
-
-
-<!-- Gallery 
-  <section id="gallery">
-    <h2>Campus Gallery</h2>
-    <div class="gallery-container">
-      <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
-      <div class="gallery" id="imageGallery">
-        <a href="campus1.jpeg" target="_blank"><img src="images/campus1.jpeg" alt="Campus View 1" /></a>
-        <a href="lab1.jpeg" target="_blank"><img src="images/lab1.jpeg" alt="Computer Lab" /></a>
-        <a href="event1.jpeg" target="_blank"><img src="images/event1.jpeg" alt="Annual Event" /></a>
-        <a href="campus1.jpeg" target="_blank"><img src="images/campus1.jpeg" alt="Campus View 2" /></a>
-        <a href="lab1.jpeg" target="_blank"><img src="images/lab1.jpeg" alt="Lab View" /></a>
-      </div>
-      <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
-    </div>
-  </section> -->
-<section id="gallery">
+<!--Gallery-->
+<section id="gallery" class="main-content">
   <h2>Campus Gallery</h2>
   <div class="gallery-container">
     <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
@@ -342,11 +348,25 @@
     </div>
     <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
   </div>
+  <div class="gallery-container">
+    <button class="scroll-btn left" onclick="scroll_Gallery(-1)">&#10094;</button>
+    <div class="gallery" id="imageGallery1">
+      <a href="1.jpeg"><img src="1.jpeg" alt="Campus 1" /></a>
+      <a href="6.jpeg"><img src="6.jpeg" alt="Lab" /></a>
+      <a href="3.jpeg"><img src="3.jpeg" alt="Event" /></a>
+      <a href="7.jpeg"><img src="7.jpeg" alt="Image 4" /></a>
+      <a href="5.jpeg"><img src="5.jpeg" alt="Image 5" /></a>
+      <a href="8.jpeg"><img src="8.jpeg" alt="Image 6" /></a>
+      <a href="2.jpeg"><img src="2.jpeg" alt="Image 7" /></a>
+      <a href="9.jpeg"><img src="9.jpeg" alt="Image 7" /></a>
+    </div>
+    <button class="scroll-btn right" onclick="scroll_Gallery(1)">&#10095;</button>
+  </div>
 </section>
 
 
 
- <section id="contact">
+ <section id="contact" class="main-content">
   <h2>Contact Us</h2>
   <form id="contactForm">
     <label for="name">Name:</label>
@@ -367,7 +387,7 @@
 </section>
 
 
-  <footer>
+  <footer class="main-content">
     <p>&copy; 2025 Rajeev Gandhi National Institute of Computer Technology. All rights reserved.</p>
   </footer>
   <button id="scrollTopBtn" title="Go to top">&#8679;</button>
