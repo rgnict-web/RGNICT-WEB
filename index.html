@@ -44,6 +44,11 @@
   <a href="#courses">Courses</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
+  <div>
+  <a href="https://www.instagram.com/rgnict.jhalwa?igsh=MThoNWY3bHo2a3ltaA==" target="_blank"><img src="intsa.png" alt="hi" height="35" width="35"></a>
+  <a href="https://www.facebook.com/share/1TCxuUaLfc/"  target="_blank"><img src="faceb.png" alt="hi" height="35" width="35"></a>
+  <!-- <a href="https://www.x.com/"><img src="xHand.png" alt="hi" height="40" width="40"></a>-->
+  </div>
 </div>
 
 
@@ -141,7 +146,7 @@
     <span class="close" onclick="closeModal('modalADCA')">&times;</span>
     <h2>ADCA - Advanced Diploma in Computer Applications</h2>
     <h4>WHAT YOU WILL LEARN:</h4>
-    <ul><li>Computer Concept & Fundamentals</li><li>Operating System</li><li>MS Office Tools</li><li>Computer Network & Internet</li><li>HTML, CSS, JavaScript</li></ul>
+    <ul><li>Computer Concept & Fundamentals</li><li>Operating System</li><li>MS Office Tools</li><li>Computer Network & Internet</li><li>HTML, CSS, JavaScript</li><li>Programming in C++</li> <li>Computerized Accounting through Tally with GST </li></ul>
   </div>
 </div>
 
@@ -151,7 +156,7 @@
     <span class="close" onclick="closeModal('modalDCAA')">&times;</span>
     <h2>DCAA - Diploma in Computerized Accounting & Applications</h2>
     <h4>WHAT YOU WILL LEARN:</h4>
-    <ul><li>Computer Concept & Fundamentals</li><li>MS Office Tools</li><li>Tally with GST</li></ul>
+    <ul><li>Computer Concept & Fundamentals</li><li>MS Office Tools</li><li>Computerized Accounting through Tally with GST </li></ul>
   </div>
 </div>
 
@@ -161,7 +166,7 @@
     <span class="close" onclick="closeModal('modalPGDCA')">&times;</span>
     <h2>PGDCA - Post Graduate Diploma in Computer Applications</h2>
     <h4>WHAT YOU WILL LEARN:</h4>
-    <ul><li>IT Tools</li><li>HTML, CSS, JavaScript</li><li>C++</li><li>DBMS, SQL</li></ul>
+    <ul><li>IT Tools</li><li>PHP</li><li>HTML, CSS, JavaScript</li><li>Programming in C++</li><li>DBMS, SQL</li></ul>
   </div>
 </div>
 
@@ -171,7 +176,7 @@
     <span class="close" onclick="closeModal('modalDOAP')">&times;</span>
     <h2>DOAP - Diploma in Office Automation & Publishing</h2>
     <h4>WHAT YOU WILL LEARN:</h4>
-    <ul><li>IT Tools</li><li>Basics of Financial Accounting</li><li>Tally with GST</li><li>D.T.P. (PageMaker, CorelDraw, Photoshop)</li><li>HTTML, CSS, JavaScript</li></ul>
+    <ul><li>IT Tools</li><li>Basics of Financial Accounting</li><li>Computerized Accounting through Tally with GST</li><li>D.T.P. (PageMaker, CorelDraw, Photoshop)</li><li>HTTML, CSS, JavaScript</li></ul>
   </div>
 </div>
 
@@ -191,7 +196,7 @@
     <span class="close" onclick="closeModal('modalOLEVEL')">&times;</span>
     <h2>O Level</h2>
     <p>DOEACC NIELIT foundational IT course.</p>
-    <ul><li>IT Tools and Business Systems</li><li>Internet Technology</li><li>Python Programming</li></ul>
+    <ul><li>IT Tools and Business Systems</li><li>HTTML, CSS, JavaScript</li><li>Python Programming</li><li>Internet Technology</li></ul>
   </div>
 </div>
 
@@ -345,12 +350,6 @@
       <a href="t1 (4).jpeg"><img src="t1 (4).jpeg" alt="Image 5" /></a>
       <a href="t1 (2).jpeg"><img src="t1 (2).jpeg" alt="Image 6" /></a>
       <a href="t1 (3).jpeg"><img src="t1 (3).jpeg" alt="Image 7" /></a>
-    </div>
-    <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
-  </div>
-  <div class="gallery-container">
-    <button class="scroll-btn left" onclick="scroll_Gallery(-1)">&#10094;</button>
-    <div class="gallery" id="imageGallery1">
       <a href="1.jpeg"><img src="1.jpeg" alt="Campus 1" /></a>
       <a href="6.jpeg"><img src="6.jpeg" alt="Lab" /></a>
       <a href="3.jpeg"><img src="3.jpeg" alt="Event" /></a>
@@ -360,7 +359,7 @@
       <a href="2.jpeg"><img src="2.jpeg" alt="Image 7" /></a>
       <a href="9.jpeg"><img src="9.jpeg" alt="Image 7" /></a>
     </div>
-    <button class="scroll-btn right" onclick="scroll_Gallery(1)">&#10095;</button>
+    <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
   </div>
 </section>
 
@@ -398,6 +397,12 @@
   <button class="nav-btn left" onclick="changeImage(-1)">&#10094;</button>
   <img class="modal-img" id="modalImage" src="" alt="Expanded View">
   <button class="nav-btn right" onclick="changeImage(1)">&#10095;</button>
+</div>
+<div id="imageModal1" class="modal">
+  <span class="close" onclick="closeImageModal1()">&times;</span>
+  <button class="nav-btn left" onclick="changeImage1(-1)">&#10094;</button>
+  <img class="modal-img" id="modalImage1" src="" alt="Expanded View">
+  <button class="nav-btn right" onclick="changeImage1(1)">&#10095;</button>
 </div>
 <script src="rgnict.js"></script>
 </body>

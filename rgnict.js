@@ -23,39 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.getElementById('imageGallery');//first slider
-  const gallery1 = document.getElementById('imageGallery1');//second slider
+  const gallery = document.getElementById('imageGallery');//first slider 
   const scrollBtn = document.getElementById("scrollTopBtn");
   const scrollAmount = 320;
 //first slider
   function scrollGallery(direction) {
     gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   }
-//second slider
-  function scroll_Gallery(direction) {
-    gallery1.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-  }
   //first slider
   setInterval(() => {
     const endReached = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth;
     gallery.scrollTo({ left: endReached ? 0 : gallery.scrollLeft + scrollAmount, behavior: 'smooth' });
   }, 3000);
-   // Second slider - right to left
-  setInterval(() => {
-    const atStart = gallery1.scrollLeft <= 0;
-    gallery1.scrollTo({ left: atStart ? gallery1.scrollWidth : gallery1.scrollLeft - scrollAmount, behavior: 'smooth' });
-  }, 3000);
-  //second scroller
+  /*second scroller
   window.addEventListener("scroll", () => {
     scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
-  });
+  });*/
 
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  window.scrollGallery = scrollGallery;//first slider
-  window.scroll_Gallery = scroll_Gallery;//second slider
+  window.scrollGallery = scrollGallery;//first slider 
 });
 
 
@@ -67,9 +56,10 @@ function closeModal(id) {
 }
 // === Image Popup Modal ===
 const imageModal = document.getElementById('imageModal');
+const imageModal1 = document.getElementById('imageModal1');
 const modalImage = document.getElementById('modalImage');
-const imageLinks = Array.from(document.querySelectorAll('#imageGallery a'));//first slider model
-const imageLinks1 = Array.from(document.querySelectorAll('#imageGallery1 a'));//second slider model
+const modalImage1 = document.getElementById('modalImage1');
+const imageLinks = Array.from(document.querySelectorAll('#imageGallery a'));//first slider model 
 let currentImageIndex = 0;
 //first slider model
 imageLinks.forEach((link, index) => {
@@ -79,42 +69,21 @@ imageLinks.forEach((link, index) => {
     openImageModal(index);
   });
 });
-//second slider model
-imageLinks1.forEach((link, index) => {
-  const img = link.querySelector('img');
-  img.addEventListener('click', function (e) {
-    e.preventDefault(); // prevent new tab
-    openImageModal(index);
-  });
-});
 //first slider model
 function openImageModal(index) {
   currentImageIndex = index;
   modalImage.src = imageLinks[currentImageIndex].href;
   imageModal.style.display = "block";
 }
-//second slider model
-function openImageModal(index) {
-  currentImageIndex = index;
-  modalImage.src = imageLinks1[currentImageIndex].href;
-  imageModal.style.display = "block";
-}
 function closeImageModal() {
   imageModal.style.display = "none";
-}
+} 
 //first slider model
 function changeImage(direction) {
   currentImageIndex += direction;
   if (currentImageIndex < 0) currentImageIndex = imageLinks.length - 1;
   if (currentImageIndex >= imageLinks.length) currentImageIndex = 0;
   modalImage.src = imageLinks[currentImageIndex].href;
-}
-//second slider model
-function changeImage(direction) {
-  currentImageIndex += direction;
-  if (currentImageIndex < 0) currentImageIndex = imageLinks1.length - 1;
-  if (currentImageIndex >= imageLinks1.length) currentImageIndex = 0;
-  modalImage.src = imageLinks1[currentImageIndex].href;
 }
 window.addEventListener('click', function (e) {
   if (e.target === imageModal) {
