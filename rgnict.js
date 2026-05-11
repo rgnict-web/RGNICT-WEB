@@ -269,3 +269,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 //header close
+
+
+/*scroll to top*/
+let btn21 = document.getElementById("topBtn");
+
+/* Show Button on Scroll */
+window.onscroll = function(){
+
+    if(document.documentElement.scrollTop > 1200){
+        btn21.style.display = "block";
+    }
+    else{
+        btn21.style.display = "none";
+    }
+
+};
+
+/* Scroll to Top */
+btn21.onclick = function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+};

@@ -884,3 +884,21 @@ body.menu-open .main-content {
     align-items: center;
 }
 }
+/*scroll to Top*/
+#topBtn{
+    position: fixed;
+    bottom: 25px;
+    right: 15px;
+    padding: 12px 10px;
+    font-size: 34px;
+    border: none;
+    border-radius: 10%;
+    background: rgb(244, 222, 222);
+    color: rgb(113, 2, 2);
+    cursor: pointer;
+    display: none;
+}
+#topBtn:hover{
+    background: #d60000;
+    color: white;
+}
